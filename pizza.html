@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pizza-Party</title>
+    </head>
+    <body>
+        <h1>PARTY & PIZZA</h1>
+        <input type="number" id="pizza" placeholder="Enter Num. of Pizzas"></input><br>
+        <br>
+        <input type="number" id="party" placeholder="Enter Num. of people"></input><br>
+        <br>
+        <button onclick="calc()" id="Submitbtn">Submit</button>
+
+        <p id="PizzaParty"></p>
+
+     <script>
+        function calc() {
+
+            const pizzaNum = Number(document.getElementById('pizza').value);
+            const partyPeople = Number(document.getElementById('party').value);
+            const output = document.getElementById('PizzaParty');
+
+            let PizzaSlice = pizzaNum * 8
+
+            const slicePerson = PizzaSlice / partyPeople;
+            output.innerHTML = 'Each person at the party gets '+ slicePerson + ' slice(s)';
+
+ }
+
+      
+      document.getElementById('SubmitBtn').addEventListener('click',calc)
+
+     </script>
+    </body>
+</html>
