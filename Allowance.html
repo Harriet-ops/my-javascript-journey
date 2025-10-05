@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weekly Allowance</title>
+    </head>
+    <body>
+        <h1>NOAH'S ALLOWANCE CHECKER</h1>
+        <input type="number" id="allowance" placeholder="Enter amount"></input><br>
+        <br>
+        <input type="number" id="weeks" placeholder="Enter weeks"></input>
+        <br><br>
+        <button onclick="checker()" id="submitBtn">Submit</button>
+
+        <p id="Weekly"></p>
+        <script>
+            function checker(){
+                const noahAllowance= Number(document.getElementById('allowance').value);
+                const numWeeks= Number(document.getElementById('weeks').value);
+                const saveNoah = document.getElementById('Weekly');
+
+                let savings = Number(noahAllowance * numWeeks);
+
+                saveNoah.innerHTML = 'Noah can save ' + savings + ' within ' + numWeeks+ ' week(s)';
+
+            }
+         document.getElementById('submitBtn').addEventListener('click',checker)
+
+        </script>
+    </body>
+</html>
