@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Books</title>
+    </head>
+    <body>
+        <h1>BOOK READER</h1>
+        <input type="number" id="books" placeholder="Enter Pages of Book"></input><br>
+        <br>
+        <input type="number" id="read" placeholder="Enter Pages per day"></input><br>
+        <br>
+        <button onclick="calc()" id="Submitbtn">Submit</button>
+
+        <p id="Reader"></p>
+
+     <script>
+        function calc() {
+
+            const bookPages = Number(document.getElementById('books').value);
+            const dayPages = Number(document.getElementById('read').value);
+            const output = document.getElementById('Reader');
+
+            
+
+            const eachDay = parseInt(bookPages / dayPages);
+
+            output.innerHTML = 'It will take '+ eachDay + ' to finish the book';
+
+        }
+
+      
+      document.getElementById('SubmitBtn').addEventListener('click',calc)
+
+     </script>
+    </body>
+</html>
