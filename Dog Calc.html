@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dog Age</title>
+    </head>
+    <body>
+        <h1>DOG'S AGE CALCULATION</h1>
+        <input type="number" id="age" placeholder="Enter Dog's age(human years)"></input><br>
+        <br>
+        <br>
+        <button id="Submitbtn">Submit</button>
+
+        <p id="dog years"></p>
+
+     <script>
+        function calc() {
+
+            const agefordog = Number(document.getElementById('age').value);
+            
+            const output = document.getElementById('dog years');
+
+
+            const dogYears = agefordog * 7;
+            output.innerHTML = 'Your dog is ' + dogYears + ' in dog years'
+
+        }
+
+      
+      document.getElementById('Submitbtn').addEventListener('click',calc)
+
+     </script>
+    </body>
+</html>
