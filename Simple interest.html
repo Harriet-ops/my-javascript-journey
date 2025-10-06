@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Interest Calculator</title>
+    </head>
+    <body>
+        <h1>SIMPLE INTEREST</h1>
+        <input type="number" id="principal" placeholder="Enter Principal"></input><br>
+        <br>
+        <input type="number" id="interest" placeholder="Enter interest percent"></input><br>
+        <br>
+        <input type="number" id="years" placeholder="Enter years to save"></input><br>
+        <br>
+        <button id="Submitbtn">Submit</button>
+
+        <p id="savings"></p>
+
+     <script>
+        function SimpleInterest() {
+
+            const principalAmount = Number(document.getElementById('principal').value);
+            const interestAmount = Number(document.getElementById('interest').value);
+            const yearsTosave = Number(document.getElementById('years').value);
+            const result = document.getElementById('savings');
+
+            let TotalAmount= (principalAmount*interestAmount*yearsTosave)/100;
+
+            result.innerHTML= 'The savings amount will be ' + TotalAmount + ' in the next ' + yearsTosave + ' years'
+        }
+
+      
+      document.getElementById('Submitbtn').addEventListener('click',SimpleInterest)
+
+     </script>
+    </body>
+</html>
