@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coin Counter</title>
+    </head>
+    <body>
+        <h1>COIN COUNTER</h1>
+        <input type="number" id="penny" placeholder="Enter pennies"></input><br>
+        <br>
+        <input type="number" id="nickel" placeholder="Enter nickel"></input><br>
+        <br>
+        <input type="number" id="dimes" placeholder="Enter dimes"></input><br>
+        <br>
+        <input type="number" id="quarter" placeholder="Enter quarters"></input><br>
+        <br>
+        <button id="Submitbtn">Submit</button>
+
+        <p id="dollars"></p>
+
+     <script>
+        function calc() {
+
+            const pennyNum = Number(document.getElementById('penny').value);
+            const nickelNum = Number(document.getElementById('nickel').value);
+            const dimesNum = Number(document.getElementById('dimes').value);
+            const quarterNum = Number(document.getElementById('quarter').value);
+            const result = document.getElementById('dollars');
+
+            let onePenny= 0.01;
+            let oneNickel = 0.05;
+            let oneDime = 0.10;
+            let oneQuarter = 0.25;
+
+            const PennyDollar = pennyNum * onePenny;
+            const NickelDollar = nickelNum * oneNickel;
+            const DimesDollar = dimesNum * oneDime;
+            const QuarterDollar = quarterNum * oneQuarter;
+
+            const totalAmount = Number(PennyDollar + NickelDollar + DimesDollar + DimesDollar + QuarterDollar)
+
+            result.innerHTML = 'Mason has $ '+ totalAmount.toFixed(2)
+ }
+
+      
+      document.getElementById('Submitbtn').addEventListener('click',calc)
+
+     </script>
+    </body>
+</html>

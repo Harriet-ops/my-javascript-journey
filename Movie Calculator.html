@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Movie Time Calculator</title>
+  </head>
+  <body>
+    <h1>Movie Time Calculator</h1>
+    <label>
+      How many movies?
+      <input id="count" type="number" min="1" />
+    </label>
+    <div id="movieInputs"></div>
+    <button id="create">Create Inputs</button>
+    <button id="calculate">Calculate Total Time</button>
+
+    <p id="result"></p>
+
+    <script>
+      // Basic logic: create inputs, sum minutes, convert to hours/minutes
+      const createBtn = document.getElementById('create');
+      const calcBtn = document.getElementById('calculate');
+      const movieInputs = document.getElementById('movieInputs');
+      const result = document.getElementById('result');
+
+      createBtn.addEventListener('click', () => {
+        movieInputs.innerHTML = '';
+        const n = parseInt(document.getElementById('count').value) || 0;
+        for (let i = 1; i <= n; i++) {
+          const input = document.createElement('input');
+          input.type = 'number';
+          input.min = '0';
+          input.placeholder = `Length of movie ${i} (minutes)`;
+          input.className = 'movie-min';
+          movieInputs.appendChild(input);
+          movieInputs.appendChild(document.createElement('br'));
+        }
+      });
+
+      calcBtn.addEventListener('click', () => {
+        const mins = [...document.querySelectorAll('.movie-min')].map(i => parseInt(i.value) || 0);
+        const total = mins.reduce((s, v) => s + v, 0);
+        const hours = Math.floor(total / 60);
+        const minutes = total % 60;
+        result.textContent = `Total watch time: ${hours} hour(s) and ${minutes} minute(s).`;
+      });
+    </script>
+  </body>
+</html>
