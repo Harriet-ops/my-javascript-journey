@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Pizza-Party</title>
-    </head>
-    <body>
-        <h1>PARTY & PIZZA</h1>
-        <input type="number" id="pizza" placeholder="Enter Num. of Pizzas"></input><br>
-        <br>
-        <input type="number" id="party" placeholder="Enter Num. of people"></input><br>
-        <br>
-        <button onclick="calc()" id="Submitbtn">Submit</button>
+  <head>
+    <title>Pizza Party</title>
+  </head>
+  <body>
+    <h1>PARTY & PIZZA</h1>
 
-        <p id="PizzaParty"></p>
+    <input type="number" id="pizza" placeholder="Enter number of pizzas"><br><br>
+    <input type="number" id="party" placeholder="Enter number of people"><br><br>
 
-     <script>
-        function calc() {
+    <button id="Submitbtn">Submit</button>
 
-            const pizzaNum = Number(document.getElementById('pizza').value);
-            const partyPeople = Number(document.getElementById('party').value);
-            const output = document.getElementById('PizzaParty');
+    <p id="PizzaParty"></p>
 
-            let PizzaSlice = pizzaNum * 8
+    <script>
+      function calc() {
+        const pizzaNum = Number(document.getElementById('pizza').value);
+        const partyPeople = Number(document.getElementById('party').value);
+        const output = document.getElementById('PizzaParty');
 
-            const slicePerson = PizzaSlice / partyPeople;
-            output.innerHTML = 'Each person at the party gets '+ slicePerson + ' slice(s)';
+        if (!pizzaNum || !partyPeople || pizzaNum <= 0 || partyPeople <= 0) {
+          output.textContent = "Please enter valid numbers greater than 0.";
+          return;
+        }
 
- }
+        const totalSlices = pizzaNum * 8; 
+        const slicesPerPerson = Math.floor(totalSlices / partyPeople);
+        const leftover = totalSlices % partyPeople;
+
+        output.textContent =
+          `Each person gets ${slicesPerPerson} slice(s), and there are ${leftover} slice(s) left over.`;
+      }
 
       
-      document.getElementById('SubmitBtn').addEventListener('click',calc)
-
-     </script>
-    </body>
+      document.getElementById('Submitbtn').addEventListener('click', calc);
+    </script>
+  </body>
 </html>
