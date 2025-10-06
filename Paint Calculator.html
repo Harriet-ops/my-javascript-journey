@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Oliver's painting</title>
+    </head>
+    <body>
+        <h1>WALL PAINTING</h1>
+        <input type="number" id="width" placeholder="Enter width"></input><br>
+        <br>
+        <input type="number" id="height" placeholder="Enter height"></input><br>
+        <br>
+        <button id="Submitbtn">Submit</button>
+
+        <p id="can"></p>
+
+     <script>
+        function calc() {
+
+            const houseHeight = Number(document.getElementById('height').value);
+            const houseWidth = Number(document.getElementById('width').value);
+            const output = document.getElementById('can');
+
+            let coverage = houseWidth * houseHeight
+
+            const totalCan = coverage / 50;
+            output.innerHTML = 'You will need '+ Math.ceil(totalCan) + ' cans to paint the building.';
+
+ }
+
+      
+      document.getElementById('Submitbtn').addEventListener('click',calc)
+
+     </script>
+    </body>
+</html>
