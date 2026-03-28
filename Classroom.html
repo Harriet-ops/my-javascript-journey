@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>classroom</title>
+  </head>
+  <body>
+    <h1>CLASSROOM PLANNER</h1>
+
+    <input type="number" id="student" placeholder="Enter number of students"><br><br>
+    <input type="number" id="row" placeholder="Enter number of desks (a row)"><br><br>
+
+    <button id="Submitbtn" type="button">Submit</button>
+
+    <p id="Deskrow"></p>
+
+    <script>
+      function calc() {
+        const classStudent = Number(document.getElementById('student').value);
+        const classdesks = Number(document.getElementById('row').value);
+        const output = document.getElementById('Deskrow');
+
+    
+        if (!classStudent || !classdesks || classStudent <= 0 || classdesks <= 0) {
+          output.textContent = "Please enter valid numbers greater than 0.";
+          return;
+        }
+
+        const rows = Math.floor(classStudent / classdesks); // full rows
+        const leftover = classStudent % classdesks;         // students in partial row
+
+        output.innerHTML =
+          'You will have ' + rows + ' full row(s), and ' + leftover + ' student(s) in the last partially filled row.';
+      }
+
+      document.getElementById('Submitbtn').addEventListener('click', calc);
+    </script>
+  </body>
+</html>

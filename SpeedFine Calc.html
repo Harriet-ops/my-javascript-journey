@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Speed Fine Calculator</title>
+    </head>
+    <body>
+        <h1>SPEED FINE</h1>
+        <input type="number" id="actualimit" placeholder="Enter SpeedLimit"></input><br>
+        <br>
+        <input type="number" id="Mialimit" placeholder="Enter your limit"></input><br>
+        <br>
+        <button onclick="fine()" id="Submitbtn">Submit</button>
+
+        <p id="Charge"></p>
+
+     <script>
+        function fine() {
+
+            const actuaLimit = Number(document.getElementById('actualimit').value);
+            const miaLimit = Number(document.getElementById('Mialimit').value);
+            const output = document.getElementById('Charge');
+
+            if (miaLimit > actuaLimit){
+                const overSpeed = miaLimit - actuaLimit;
+                const speedFine = overSpeed * 5
+                output.textContent= 'You exceeded the speed. ' + 'Your fine is $ ' + speedFine
+
+            }else{
+                output.textContent= 'No fine, Mia'
+            }
+        }
+
+      
+      document.getElementById('SubmitBtn').addEventListener('click',calc)
+
+     </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shopping</title>
+    </head>
+    <body>
+        <h1>GROCERIES CALCULATION</h1>
+        <input type="number" id="item 1" placeholder="Enter price"></input><br>
+        <br>
+        <input type="number" id="item 2" placeholder="Enter price"></input><br>
+        <br>
+        <input type="number" id="item 3" placeholder="Enter price"></input><br>
+        <br>
+        <button id="SubmitBtn">Submit</button>
+
+        <p id="payment"></p>
+
+     <script>
+        function calc() {
+
+            const item1 = Number(document.getElementById('item 1').value);
+            const item2 = Number(document.getElementById('item 2').value);
+            const item3 = Number(document.getElementById('item 3').value);
+            const output = document.getElementById('payment');
+
+            
+
+            const fullBill = item1 + item2 + item3
+            
+            output.innerHTML = 'Your total cost is $'+ fullBill.toFixed(2);
+
+ }
+
+      
+      document.getElementById('SubmitBtn').addEventListener('click',calc)
+
+     </script>
+    </body>
+</html>

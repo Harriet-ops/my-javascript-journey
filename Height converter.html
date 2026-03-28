@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>height converter</title>
+    </head>
+    <body>
+        <h1>KNOW YOUR HEIGHT IN CM</h1>
+        <input type="number" id="feet" placeholder="Enter height(feet)"></input><br>
+        <br>
+        <input type="number" id="inches" placeholder="Enter height(inches)"></input><br>
+        <br>
+        <button id="Submitbtn">Submit</button>
+
+        <p id="height"></p>
+
+     <script>
+        function calc() {
+
+            const Heightfeet = Number(document.getElementById('feet').value);
+            const HeightInch = Number(document.getElementById('inches').value);
+            const output = document.getElementById('height');
+
+            let cm = (Heightfeet * 12 + HeightInch) * 2.54
+
+            
+            
+            output.innerHTML = 'You have a height of ' + cm + ' cm.'
+ }
+
+      
+      document.getElementById('Submitbtn').addEventListener('click',calc)
+
+     </script>
+    </body>
+</html>

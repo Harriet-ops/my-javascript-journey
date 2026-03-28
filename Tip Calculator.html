@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Restaurant</title>
+    </head>
+    <body>
+        <h1>TIP & BILL CALCULATION</h1>
+        <input type="number" id="amount" placeholder="Enter bill amount"></input><br>
+        <br>
+        <input type="number" id="Tip" placeholder="Enter Tip"></input><br>
+        <br>
+        <input type="number" id="people" placeholder="Enter num. of people"></input><br>
+        <br>
+        <button onclick="calc()" id="Submitbtn">Submit</button>
+
+        <p id="payment"></p>
+
+     <script>
+        function calc() {
+
+            const billAmount = Number(document.getElementById('amount').value);
+            const People = Number(document.getElementById('people').value);
+            const tippy = Number(document.getElementById('Tip').value);
+            const output = document.getElementById('payment');
+
+            let tipValue = (tippy * billAmount)/ 100;
+
+            const fullBill = (tipValue + billAmount)/People;
+            
+            output.innerHTML = 'Each person pays '+ fullBill;
+
+ }
+
+      
+      document.getElementById('SubmitBtn').addEventListener('click',calc)
+
+     </script>
+    </body>
+</html>
